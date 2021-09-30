@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+
+            <h1>Computer Programming</h1>
+
+            <!--Will display the screen width here -->
+            <h2 id="width"></h2>
+
+            <!--first row, which will contain two columns-->
+            <h2 class="row">
+
+                <!--Inside the row, create a column. This column is 6 units wide-->
+                <!--md: Will be horizontal above 990px screen width, stacked -->
+                <div class="col-md-6">
+                    <img src="code_image.jpg">
+                </div>
+            </h2>
+        </div>
+    </body>
+
+    <!--JavaScript to dispaly the browser screen width, and update it as the window is resized-->
+
+    <script>
+
+        function displayWidth() {
+            let width = documnet.body.scrollWidth;
+            let widthDisplayEl = document.querySelector('#width')
+            widthDisplayEl.innerHTML = `Window width = ${width} pixels`
+        
+        }
+
+        displayWidth();  // Call displayWidth to display initial width
+
+        // Add resize event listener to the window object
+        // to update when window is resized
+        window.addEventListener('resize', displayWidth)
+
+
+    </script>
+
+</html>

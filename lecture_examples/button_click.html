@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+
+        <!-- Write HTML content here -->
+        <button>Click here!</button>
+
+        <script>
+
+            // Write script here
+            let button = document.querySelector('button')
+
+            // Another way of writing the button clicking code
+            // function showAlert() {
+            //     alert('You clicked the button!')
+            // }
+            // button.addEventListener('click', showAlert)
+
+
+
+            button.addEventListener('click', function() {
+                alert('You clicked the button!')
+                // button.innerHTML = 'You clicked the button!'
+                // button.style.backgroundColor = 'red'
+                button.remove()
+            })
+
+        </script>
+
+    </body>
+</html>

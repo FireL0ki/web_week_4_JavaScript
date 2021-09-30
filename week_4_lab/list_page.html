@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+
+        <p>Enter text to add to the list</p>
+        <input id="new-text"></input>
+        <button id="add-input-text">Add</button>
+    
+        <!-- create empty unordered list  -->
+        <ul id="list-of-text"></ul>
+    
+        <button id="clear">Clear</button>
+    
+    <script>
+    
+        // Script below
+        let textInput = document.querySelector('#new-text')
+        let addButton = document.querySelector('#add-input-text')
+        let textList = document.querySelector('#list-of-text')
+        let clearButton = document.querySelector('#clear')
+    
+        let itemsinList = 0  // to keep track of # of list items
+        let maxItems = 10  // set a maximum #
+    
+        document.addEventListener('keyup', function() {
+            // console.log(event.keyCode)  // use to check in dev tools the key codes
+            if (event.keyCode == 13) {
+                addButton.click()  // clicks addButton if user presses enter on keyboard
+            }
+        })
+    
+        addButton.addEventListener('click', function() {
+            //read the text in the input
+            let newText = textInput.value
+    
+            if (newText.length == 0) {  // validation- user has typed something
+                alert('Enter some text')
+                return
+            }
+
+            if (newText.length > 50) {  // validation- make sure user hasn't typed something longer than 50 characters
+                alert('Error. Please enter something 50 characters or less')
+                return
+            }
+    
+            if (itemsinList >= maxItems) {  // check max # elements is not exceeded
+                alert('No more elements can be added')
+                return
+            }
+    
+    
+            // create a new li element
+            let newListItem = document.createElement('li')
+            // set new li element to the entered text
+            newListItem.innerHTML = newText
+            // add the new li element as the child of the ul element
+            textList.appendChild(newListItem)
+            // clear the text in the input
+            textInput.value = ''
+    
+            // add to the items in list count, for checking that max # is not exceeded
+            itemsinList++
+        })
+    
+        // create event listener for clicking clear button
+        clearButton.addEventListener('click', function() {
+            textList.innerHTML = ''
+            itemsinList = 0
+        })
+    
+    </script>
+
+    </body>
+</html>
