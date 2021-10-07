@@ -41,19 +41,75 @@
     <p>There are 
         <span id="student-count">
           <!-- use JavaScript to count the number of students, and show here -->
+
+          <script>
+
+            let studentListCount = 0 // keep track of # students in student list
+           .innerHTML = studentCount
+
+          </script>
+
         </span> 
     student(s) in the club.</p>
     
 
+    <!-- create empty unordered list -->
     <ul id="student-list">
         <!-- use JavaScript to create li elements  -->
+        
+        <script>
+            let studentName = document.querySelector('#student-name')
+            let studentId = document.querySelector('#student-id')
+            let studentGpa = document.querySelector('#student-gpa')
+
+            let studentList = document.querySelector('#student-list')
+            let addButton = document.querySelector('#add-student')
+            let clearButton = document.querySelector('#clear')
+
+
+            // event listener for add button, used to add students to the unordered list
+            addButton.addEventListener('click', function() {
+            
+            // create variables to hold the values read from the input boxes
+            let newStudentName = studentName.value
+
+            // add validation for name
+
+            let newStudentId = studentId.value
+
+            // add validation for studentID
+
+            let newStudentGpa = studentGpa.value
+
+            // add validation for student GPA
+
+
+            // create a new li element
+            let newStudent = document.createElement('li')
+            // set new li element to the entered text
+            newStudent.innerHTML = `${newStudentName}, ID:${newStudentId}, GPA ${newStudentGpa}`
+            //"Beyonce Knowles, id: aa1234bb, GPA 3.8"
+            // add the new li element as the child of the ul element
+            studentList.appendChild(newStudent)
+            // clear the text in the input
+            studentName.value = ''
+            studentId.value = ''
+            studentGpa.value = ''
+
+    
+            // add to the students in list count
+            studentListCount++
+            })
+
+           
+        </script>
     </ul>
 
     <button id="remove-selected-students">Remove selected students</button>
 
 <script>
 
-
+    let studentCount = 0;
 
     /* Add the following functionality to this page
     [Note on HTML element notation: span#student-count means the span element with id="student-count" ]
@@ -67,6 +123,7 @@
             - Create a new li element (1pt)
             - Set the innerHTML of the li element to a string containing the student's name, id, and GPA  (1pt)
                 for example "Beyonce Knowles, id: aa1234bb, GPA 3.8"
+
                 Use a template string to generate this string
             - Add a click event handler to the new li element.  (3pt)
             - When the li element is clicked, add the class="selected" to that li element.
