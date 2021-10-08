@@ -64,7 +64,7 @@
 
             let studentList = document.querySelector('#student-list')
             let addButton = document.querySelector('#add-student')
-            let clearButton = document.querySelector('#clear')
+            let removeStudentsButton = document.querySelector('#remove-selected-students')
 
 
             // event listener for add button, used to add students to the unordered list
@@ -120,16 +120,30 @@
       <newStudent onclick='toggleSelected()'>
 
       <script>
+
+          // toggle selected class on student li element
           function toggleSelected(){
               newStudent.classList.toggle("selected");
           }
       </script>
 
+
     </ul>
 
-
-
     <button id="remove-selected-students">Remove selected students</button>
+
+    <script>
+
+        // create event listener for
+        clearStudentsButton.addEventListener('click', function() {
+            // remove all items with class 'selected'
+            let studentsToRemove = document.querySelectorAll('selected')
+            studentsToRemove.forEach( function(student) {
+                student.remove()
+            })
+        })
+
+    </script>
 
 <script>
 
