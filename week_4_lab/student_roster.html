@@ -88,7 +88,11 @@
             if (newStudentGpa.length == 0) {
                 alert('Please enter a GPA')
             }
-            
+
+            if (newStudentGpa < 0 || newStudentGpa > 4) {
+                alert('Please enter a GPA in the range of 0 - 4')
+            }
+
 
             // create a new li element
             let newStudent = document.createElement('li')
