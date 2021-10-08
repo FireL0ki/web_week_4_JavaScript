@@ -45,7 +45,7 @@
           <script>
 
             let studentListCount = 0 // keep track of # students in student list
-           .innerHTML = studentCount
+            document.querySelector("#student-count").innerHTML = `${studentListCount}`
 
           </script>
 
@@ -69,20 +69,26 @@
 
             // event listener for add button, used to add students to the unordered list
             addButton.addEventListener('click', function() {
-            
+
             // create variables to hold the values read from the input boxes
             let newStudentName = studentName.value
-
             // add validation for name
+            if (newStudentName.length == 0) {
+                alert('Please enter a name')
+            }
 
             let newStudentId = studentId.value
-
             // add validation for studentID
+            if (newStudentId.length == 0) {
+                alert('Please enter an ID')
+            }
 
             let newStudentGpa = studentGpa.value
-
             // add validation for student GPA
-
+            if (newStudentGpa.length == 0) {
+                alert('Please enter a GPA')
+            }
+            
 
             // create a new li element
             let newStudent = document.createElement('li')
@@ -99,6 +105,9 @@
     
             // add to the students in list count
             studentListCount++
+
+            // update 'There are __ students in club' text
+            document.querySelector("#student-count").innerHTML = `${studentListCount}`
             })
 
            
