@@ -105,8 +105,8 @@
             studentName.value = ''
             studentId.value = ''
             studentGpa.value = ''
-
     
+
             // add to the students in list count
             studentListCount++
 
@@ -114,9 +114,20 @@
             document.querySelector("#student-count").innerHTML = `${studentListCount}`
             })
 
-           
         </script>
+
+      <!--add click event handler to new li element-->
+      <newStudent onclick='toggleSelected()'>
+
+      <script>
+          function toggleSelected(){
+              newStudent.classList.toggle("selected");
+          }
+      </script>
+
     </ul>
+
+
 
     <button id="remove-selected-students">Remove selected students</button>
 
