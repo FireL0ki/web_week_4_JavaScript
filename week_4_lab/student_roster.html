@@ -81,16 +81,19 @@
             // add validation for studentID
             if (newStudentId.length == 0) {
                 alert('Please enter an ID')
+                return
             }
 
             let newStudentGpa = studentGpa.value
             // add validation for student GPA
             if (newStudentGpa.length == 0) {
                 alert('Please enter a GPA')
+                return
             }
 
             if (newStudentGpa < 0 || newStudentGpa > 4) {
                 alert('Please enter a GPA in the range of 0 - 4')
+                return
             }
 
 
@@ -114,18 +117,18 @@
             document.querySelector("#student-count").innerHTML = `${studentListCount}`
             })
 
+            // click event handler for li elements 
+            document.getElementById("student-list").addEventListener("click", function(event) {
+                    event.target.className = "selected";  // update class on targeted element
+            })
+
+
+            // function toggleClass() {
+            //     let li = document.getElementById("student-list")
+            //     li.classList.toggle("select")
+            // }
+
         </script>
-
-      <!--add click event handler to new li element-->
-      <newStudent onclick='toggleSelected()'>
-
-      <script>
-
-          // toggle selected class on student li element
-          function toggleSelected(){
-              newStudent.classList.toggle("selected");
-          }
-      </script>
 
 
     </ul>
@@ -134,14 +137,15 @@
 
     <script>
 
-        // create event listener for
-        clearStudentsButton.addEventListener('click', function() {
+        // create event listener for removeStudentsButton
+        removeStudentsButton.addEventListener('click', function() {
             // remove all items with class 'selected'
             let studentsToRemove = document.querySelectorAll('selected')
             studentsToRemove.forEach( function(student) {
                 student.remove()
             })
         })
+
 
     </script>
 
